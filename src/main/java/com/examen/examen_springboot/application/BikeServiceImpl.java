@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.examen.examen_springboot.domain.entities.Bike;
 import com.examen.examen_springboot.domain.services.BikeInterface;
 import com.examen.examen_springboot.infrastructure.BikeRepository;
+import com.examen.examen_springboot.infrastructure.SaleDetailsRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -19,6 +20,9 @@ public class BikeServiceImpl implements BikeInterface {
     @Autowired
     BikeRepository bikeRepository;
 
+    @Autowired
+    SaleDetailsRepository saleDetailsRepository;
+
     @Override
     @Transactional
     public void save(Bike bike) {
@@ -28,6 +32,7 @@ public class BikeServiceImpl implements BikeInterface {
     @Override
     @Transactional
     public void delete(Bike bike) {
+        saleDetailsRepository.deleteByBike(bike);
         bikeRepository.delete(bike);
     }
 

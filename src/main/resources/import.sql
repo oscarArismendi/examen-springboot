@@ -25,3 +25,5 @@ INSERT INTO bicicletas (id, modelo, marca, precio, stock) VALUES (1, 1, 1, 1000.
 INSERT INTO ventas (id, fecha, cliente_id) VALUES (1, '2024-09-09', 1);
 
 INSERT INTO detalles_ventas (id, venta_id, bicicleta_id, cantidad, precio_unitario) VALUES (1, 1, 1, 2, 1000.00);
+
+INSERT INTO detalles_ventas (id, venta_id, bicicleta_id, cantidad, precio_unitario) VALUES (2, 1, 1, 2, 1000.00);
